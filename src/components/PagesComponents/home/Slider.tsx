@@ -19,7 +19,6 @@ const Slider = () => {
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000); // Auto-slide every 5s
@@ -41,26 +40,14 @@ const Slider = () => {
             className="w-full h-96 object-cover "
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <h2 className=" text-blue-900 font-bold text-2xl">
+            <h2 className=" text-blue-950 font-bold text-2xl">
               {slide.description}
             </h2>
           </div>
         </div>
       ))}
 
-      {/* Manual controls */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full shadow hover:bg-blue-700"
-      >
-        ◀
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full shadow hover:bg-blue-700"
-      >
-        ▶
-      </button>
+      
     </div>
   );
 };
